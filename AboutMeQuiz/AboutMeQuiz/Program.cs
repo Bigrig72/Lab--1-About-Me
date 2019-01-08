@@ -35,10 +35,7 @@ namespace AboutMeQuiz
             {
                 Console.WriteLine($"Exception thrown: {ex.Message}");
             }
-            finally
-            {
-                Console.WriteLine($"Finished Quiz. Score: {guesses}");
-            }
+          
 
             //Question 2
 
@@ -67,7 +64,11 @@ namespace AboutMeQuiz
                 Console.WriteLine($"Exception thrown: {e.Message}");
                
             }
-            
+            finally
+            {
+                Console.WriteLine($"Finished Quiz. Score: {guesses}");
+            }
+
         }
 
         static string HeightQuestion()
@@ -85,5 +86,18 @@ namespace AboutMeQuiz
         }
 
         static string footballQuestion()
+        {
+            Console.WriteLine("I played football at Appalachian State University, guess how many championships we won all 5 years I was there?");
+            string champGuess = Console.ReadLine();
+            int champConvert = Convert.ToInt32(champGuess);
+
+            if(champConvert != 5)
+            {
+                return "incorrect";
+            }
+
+            return "correct";
+
+        }
     }
 }
