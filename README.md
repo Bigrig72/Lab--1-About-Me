@@ -1,2 +1,2 @@
-# Lab--1-About-Me
+# Lab01-AboutMeQuiz
 About me guessing game
