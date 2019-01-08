@@ -64,6 +64,36 @@ namespace AboutMeQuiz
                 Console.WriteLine($"Exception thrown: {e.Message}");
                
             }
+           
+
+            //Question 3
+
+            try
+            {
+
+                bool benchpress = benchPressQuestion();
+              
+
+                if (benchpress == true)
+                {
+                    guesses++;
+                    Console.WriteLine($"That is correct, {name}");
+
+                }
+                else
+                {
+                    Console.WriteLine($"Sorry {name} I actaully barely made it to 40 reps, but sure did!");
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine($"Exception thrown: {e.Message}");
+
+            }
             finally
             {
                 Console.WriteLine($"Finished Quiz. Score: {guesses}");
@@ -98,6 +128,22 @@ namespace AboutMeQuiz
 
             return "correct";
 
+        }
+
+        private static bool benchPressQuestion()
+
+        {
+            Console.WriteLine("Did I bench press 225 lbs. 40 times at the pro-day when preparing for the NFL? Guess true or false");
+            string benchGuess = Console.ReadLine();
+
+            if(benchGuess == "true")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
