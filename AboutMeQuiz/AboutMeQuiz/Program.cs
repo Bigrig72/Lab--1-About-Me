@@ -6,6 +6,7 @@ namespace AboutMeQuiz
     {
         static void Main(string[] args)
         {
+            // counter created in the main to track nuber of guesses. 
             int guesses = 0;
 
             Console.WriteLine("Welcome to the about me guessing game!!, Lets get started! Enter your name");
@@ -14,7 +15,8 @@ namespace AboutMeQuiz
             Console.WriteLine($"Ok {name}, let's get started!");
 
 
-            //Question One.
+            //Question One. Running my conditions here and calling methods, which you will find below. 
+            //First Question is the height question
             try
             {
                 string heightResponse = HeightQuestion();
@@ -37,7 +39,7 @@ namespace AboutMeQuiz
             }
           
 
-            //Question 2
+            //Question 2--Championships question
 
             try
             {
@@ -67,7 +69,8 @@ namespace AboutMeQuiz
            
 
             //Question 3
-
+            //Boolean method called to return true or false 
+            // still tracking guesses
             try
             {
 
@@ -94,12 +97,45 @@ namespace AboutMeQuiz
                 Console.WriteLine($"Exception thrown: {e.Message}");
 
             }
+           
+
+            //Question 4--Cities guess
+
+            try
+            {
+
+                uint citiesResponse = cityInfoGuess();
+
+                if (citiesResponse == 3)
+                {
+                    guesses++;
+                    Console.WriteLine($"That is correct, {name}");
+
+                }
+                else
+                {
+                    Console.WriteLine($"Sorry {name} we actually won a championship each year I was there! Very proud to be part of a winning team!");
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine($"Exception thrown: {e.Message}");
+
+            }
             finally
             {
                 Console.WriteLine($"Finished Quiz. Score: {guesses}");
             }
 
         }
+
+        //Beginning of my methods for each question..Find below
+
+        //Question 1    
 
         static string HeightQuestion()
         {
@@ -114,6 +150,8 @@ namespace AboutMeQuiz
 
             return "Correct";
         }
+
+        //Question 2
 
         static string footballQuestion()
         {
@@ -130,6 +168,8 @@ namespace AboutMeQuiz
 
         }
 
+        //Question 3
+
         private static bool benchPressQuestion()
 
         {
@@ -143,6 +183,24 @@ namespace AboutMeQuiz
             else
             {
                 return false;
+            }
+        }
+
+        //Question 4
+
+        static uint cityInfoGuess()
+        {
+            Console.WriteLine("Guess the number of cities I have lived in?");
+            string guesses = Console.ReadLine();
+            int cityGuess = Convert.ToUInt16(guesses);
+
+            if (cityGuess != 3)
+            {
+                return 1;
+            }
+            else
+            {
+                return 3;
             }
         }
     }
